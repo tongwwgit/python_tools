@@ -78,6 +78,19 @@ git clone <repo> <directory>     #克隆到指定的目录
 
    ```git
    git log --pretty=oneline      #单行输出信息
+    git log --oneline            #也是单行输出，只不过版本号只显示前几个字符
+   ```
+
+6. git reset 回退版本： 
+
+   * 当前版本为HEAD, HEAD^ 上一个版本, HEAD^^ 上上一个版本
+   * HEAD~0 表示当前版本, HEAD~1 上一个版本, HEAD^2 上上一个版本
+
+   ```git
+   git reset [--soft | --mixed | --hard] [HEAD]
+   --mixed 为默认，可以不用带该参数，用于重置暂存区的文件与上一次的提交(commit)保持一致，工作区文件内容保持不变。
+   --soft 参数用于回退到某个版本
+   --hard 参数撤销工作区中所有未提交的修改内容，将暂存区与工作区都回到上一次版本，并删除之前的所有信息提交
    ```
 
    
