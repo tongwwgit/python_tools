@@ -74,4 +74,10 @@ git clone <repo> <directory>     #克隆到指定的目录
    git commit -a  #-a 参数设置修改文件后不需要执行 git add 命令，直接来提交
    ```
 
+5. git log 查看历史提交记录（由近到远的显示）
+
+   ```git
+   git log --pretty=oneline      #单行输出信息
+   ```
+
    
