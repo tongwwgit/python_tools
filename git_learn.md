@@ -132,7 +132,25 @@ git clone <repo> <directory>     #克隆到指定的目录
    ```
 
 2. 从远程库克隆
+   
    * git clone name
+   
+3. git pull 从远程获取代码并合并本地的版本。   git pull <远程主机名> <远程分支名>:<本地分支名>
+
+   ```git
+   git pull origin master:brantest
+   git pull origin master  #如果远程分支是与当前分支合并，则冒号后面的部分可以省略。
+   ```
+
+4. git push 命用于从将本地的分支版本上传到远程并合并。 
+
+   ```git
+   git push <远程主机名> <本地分支名>:<远程分支名>
+   git push <远程主机名> <本地分支名>    #若本地分支和远程分支同名
+   git push origin master
+   ```
+
+   
 
 ### 分支管理
 
@@ -143,3 +161,5 @@ git clone <repo> <directory>     #克隆到指定的目录
    * git checkout branchname 切换分支   或者使用git switch branchname
    * git checkout 命令加上-b参数表示创建并切换     或者 git swith -c branchname
    * git merge branchname   合并指定分支到当前分支
+   * git branch -d (branchname) 删除分支
+
