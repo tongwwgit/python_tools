@@ -26,10 +26,10 @@ $git config user.name
 ### git 工作区，暂存区，缓存区
 
 * 工作区：就是你在电脑里能看到的目录。
-
 * 暂存区：英文叫 stage 或 index。一般存放在 .git 目录下的 index 文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。
-
 * 版本库：工作区有一个隐藏目录 .git，这个不算工作区，而是 Git 的版本库。
+* Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD
+* git 管理的是修改
 
 ### git创建仓库
 
@@ -49,11 +49,11 @@ git clone <repo> <directory>     #克隆到指定的目录
 
 ### git基本操作
 
-1. git add  添加一个或多个文件到缓存区
+1. git add  添加一个或多个文件到暂存区
 
    ```git
    git add [file1] [file2] ...
-   git add .      #添加所有文件到缓存区
+   git add .      #添加所有文件到暂存区
    ```
 
    
@@ -67,7 +67,7 @@ git clone <repo> <directory>     #克隆到指定的目录
 
 3. git diff  较文件在暂存区和工作区的差异。
 
-4. git commit 命令将暂存区内容添加到本地仓库中。
+4. git commit 命令一次性地将暂存区内容添加到本地仓库中。
 
    ```python
    git commit -m [message]    #-m 可以额外增加备注信息
@@ -78,7 +78,7 @@ git clone <repo> <directory>     #克隆到指定的目录
 
    ```git
    git log --pretty=oneline      #单行输出信息
-    git log --oneline            #也是单行输出，只不过版本号只显示前几个字符
+   git log --oneline            #也是单行输出，只不过版本号只显示前几个字符
    ```
 
 6. git reset 回退版本： 
@@ -93,4 +93,7 @@ git clone <repo> <directory>     #克隆到指定的目录
    --hard 参数撤销工作区中所有未提交的修改内容，将暂存区与工作区都回到上一次版本，并删除之前的所有信息提交
    ```
 
-   
+
+7. git checkout -- file 丢弃工作区的修改：让这个文件回到最近一次git commit或git add时的状态。
+   * 一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
+   * 一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
