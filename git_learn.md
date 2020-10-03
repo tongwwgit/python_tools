@@ -87,6 +87,7 @@ git clone <repo> <directory>     #克隆到指定的目录
    ```git
    git log --pretty=oneline      #单行输出信息
    git log --oneline            #也是单行输出，只不过版本号只显示前几个字符
+   git log --graph              #命令可以看到分支合并图。
    ```
 
 6. git reset 回退版本： 
