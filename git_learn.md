@@ -146,11 +146,14 @@ git clone <repo> <directory>     #克隆到指定的目录
 
    ```git
    git push <远程主机名> <本地分支名>:<远程分支名>
-   git push <远程主机名> <本地分支名>    #若本地分支和远程分支同名
+   git push <远程主机名> <本地分支名>    #若本地分支和远程分支同名可省略冒号后面
    git push origin master
    ```
 
-   
+
+5. 关联本地分支和远程分支 git branch --set-upstream-to=origin/<branchname>   local_branch_name
+
+   这样可以直接使用git push或者git pull 不需要再增加远程主机名和分支名
 
 ### 分支管理
 
@@ -163,3 +166,8 @@ git clone <repo> <directory>     #克隆到指定的目录
    * git merge branchname   合并指定分支到当前分支
    * git branch -d (branchname) 删除分支
 
+2. 多人协作
+   * 首先，可以试图用git push origin <branch-name>推送自己的修改；
+   * 如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+   * 如果合并有冲突，则解决冲突，并在本地提交；
+   * 没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！
