@@ -23,6 +23,14 @@ $vim ~/.gitconfig
 $git config user.name
 ```
 
+### SSH Keys
+
+```git
+ssh-keygen -t rsa -C "your_email@example.com"  生成本地的ssh-key
+```
+
+
+
 ### git 工作区，暂存区，缓存区
 
 * 工作区：就是你在电脑里能看到的目录。
@@ -103,4 +111,36 @@ git clone <repo> <directory>     #克隆到指定的目录
    * git rm file: 从暂存区和工作区中删除文件
      * 若要从版本库中删除：就用命令git rm删掉，并且git commit
    * 若误删除了： git checkout -- file         用版本库里的版本替换工作区的版本
+
+### 远程仓库
+
+1. 添加远程仓库。 git remote 用于在远程仓库的操作
+
+   * origin 为远程地址的别名
+   * git remote -v  : 显示远程库的信息
+   * git remote rm name : 删除远程库
+
+   ```git
+   echo "# python_tools" >> README.md
+   git init
+   git add README.md
+   git commit -m "first commit"
+   git branch -M main         #重命名分支
+   git remote add origin git@github.com:tongwwgit/python_tools.git #添加远程库
+   git push -u origin main  
+   #本地库推送到远程库，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来
+   ```
+
+2. 从远程库克隆
+   * git clone name
+
+### 分支管理
+
+1. 创建和合并分支
+   * Git为我们自动创建的第一个分支master(指向提交)，以及指向master的一个指针叫HEAD
+   * git branch 命令列出分支
+   * git branch branchname  创建分支
+   * git checkout branchname 切换分支
+   * git checkout 命令加上-b参数表示创建并切换
+   * git merge branchname   合并指定分支到当前分支
 
