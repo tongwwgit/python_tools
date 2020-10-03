@@ -97,3 +97,10 @@ git clone <repo> <directory>     #克隆到指定的目录
 7. git checkout -- file 丢弃工作区的修改：让这个文件回到最近一次git commit或git add时的状态。
    * 一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
    * 一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
+
+8. 删除文件： 
+   * rm file : 只删除了工作区的文件
+   * git rm file: 从暂存区和工作区中删除文件
+     * 若要从版本库中删除：就用命令git rm删掉，并且git commit
+   * 若误删除了： git checkout -- file         用版本库里的版本替换工作区的版本
+
