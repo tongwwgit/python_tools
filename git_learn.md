@@ -138,7 +138,8 @@ git clone <repo> <directory>     #克隆到指定的目录
 
 1. 创建和合并分支
    * Git为我们自动创建的第一个分支master(指向提交)，以及指向master的一个指针叫HEAD
-   * git branch 命令查看当前分支
+   * git branch 命令列出分支
    * git branch branchname  创建分支
-   * git checkout branchname 切换分支
-   * git checkout 命令加上-b参数表示创建并切换
+   * git checkout branchname 切换分支   或者使用git switch branchname
+   * git checkout 命令加上-b参数表示创建并切换     或者 git swith -c branchname
+   * git merge branchname   合并指定分支到当前分支
