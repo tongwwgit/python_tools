@@ -1,5 +1,7 @@
 #### 生成图片边缘
 
+边缘检测的本质是微分，如上图所示，当相邻两个像素点的灰度值差异越大时，也就是其斜率越陡，也就是微分值越大，进而通过这个来判断边缘，实际中常用差分，x方向和y方向。
+
 ```python
 from skimage.filters import gaussian, sobel_h, sobel_v, sobel
 from skimage.segmentation import find_boundaries
@@ -13,8 +15,8 @@ edge=edge.astype(np.uint8)
 #生成方向
 fg255=(fg*255).astype(np.uint8)
 fg255_blur=gaussian(fg255,sigma=2) #局部高斯模糊
-grad_h=sobel_h(fg255_blur) #水平边缘
-grad_v=sobel_v(fg255_blur) #垂直边缘
+grad_h=sobel_h(fg255_blur) #横向梯度： 算子使用3*3矩阵和原始图片做卷积得到
+grad_v=sobel_v(fg255_blur) #纵向梯度
 orient_angle = np.arctan2(grad_v, grad_h) + np.pi #可直接生成每一点的方向，范围是[0,2pi]
 
 #sobel方法直接生成边缘

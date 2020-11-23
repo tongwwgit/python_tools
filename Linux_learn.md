@@ -18,13 +18,20 @@ tmux
 Ctrl+b d
 tmux attach -t 0
 
-
+* tmux 做屏幕拆分
+  * Ctrl-B +% 竖直拆分屏幕（两个 Shell 分别位于左右）
+  * Ctrl-B +" 水平拆分屏幕（两个 Shell 分别位于上下）
+  * Ctrl-B +O 切换到另一个 Shell
+  * Ctrl-B +X 关闭当前的 Shell
+  * Ctrl-B +！ 关闭所有的 Shell
 
 ### 文件操作命令
 
-ls | wc -w  查看文件夹下多少文件
+* ls | wc -w  查看文件夹下多少文件
 
+* du 会显示指定的目录或文件所占用的磁盘空间。
 
+  du -h --max-depth=1  列出的最大目录层数为1
 
 #### 环境变量
 
