@@ -98,20 +98,30 @@ git clone <repo> <directory>     #克隆到指定的目录
    ```git
    git reset [--soft | --mixed | --hard] [HEAD]
    --mixed 为默认，可以不用带该参数，用于重置暂存区的文件与上一次的提交(commit)保持一致，工作区文件内容保持不变。
+   
+   比如修改了a.txt然后使用了git add, 需要撤销stage区域的a.txt避免该文件被commit,
+   可以使用git reset a.txt 其全称是git reset --mixed HEAD a.txt
+   这样就不改变 work dir 中的任何数据，将 stage 区域中的 a.txt 文件还原成 HEAD 指向的 commit history 中的样子
+   
    --soft 参数用于回退到某个版本
    --hard 参数撤销工作区中所有未提交的修改内容，将暂存区与工作区都回到上一次版本，并删除之前的所有信息提交
    ```
 
 
-7. git checkout -- file 丢弃工作区的修改：让这个文件回到最近一次git commit或git add时的状态。
+7. git checkout 命令可用于切换分支或回复工作树文件
+   
+   git checkout  filename 丢弃工作区的修改：让这个文件回到最近一次git commit或git add时的状态。需要注意只会把被修改的文件恢复成stage的状态，若新增了新文件这样操作是不会删除新文件的
+
    * 一种是readme.txt自修改后还没有被放到暂存区，现在，撤销修改就回到和版本库一模一样的状态；
    * 一种是readme.txt已经添加到暂存区后，又作了修改，现在，撤销修改就回到添加到暂存区后的状态。
-
+   
 8. 删除文件： 
    * rm file : 只删除了工作区的文件
    * git rm file: 从暂存区和工作区中删除文件
      * 若要从版本库中删除：就用命令git rm删掉，并且git commit
-   * 若误删除了： git checkout -- file         用版本库里的版本替换工作区的版本
+   * 若误删除了： git checkout filename         用版本库里的版本替换工作区的版本
+
+
 
 ### 远程仓库
 
